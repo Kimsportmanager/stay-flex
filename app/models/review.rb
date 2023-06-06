@@ -1,3 +1,7 @@
 class Review < ApplicationRecord
-  belongs_to :reservations
+  has_one :user, through: :reservations
+  has_one :room, through: :reservations
+  belongs_to :reservation
+
+  validates :rating, :comment, presence: true
 end
