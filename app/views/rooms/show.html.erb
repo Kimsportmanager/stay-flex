@@ -1,0 +1,11 @@
+<h1><%= @room.title %></h1>
+
+<p><%= @room.description %></p>
+<p><strong>Price:</strong> <%= @room.price %></p>
+
+<p>
+  <%= link_to "Edit", edit_room_path(@room) %>
+  <%= button_to "Delete", room_path(@room), method: :delete, data: { confirm: "Are you sure you want to delete this room?" } %>
+</p>
+
+<p><%= link_to "Back to Rooms", rooms_path %></p>
