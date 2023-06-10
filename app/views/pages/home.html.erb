@@ -1,2 +1,197 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<%# navbar %>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <div class="container-fluid">
+    <%= link_to "#", class: "navbar-brand" do %>
+      <%= image_tag "https://logodownload.org/wp-content/uploads/2016/10/airbnb-logo-0.png" %>
+    <% end %>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+        <% if user_signed_in? %>
+          <li class="nav-item active">
+            <%= link_to "Accueil", "#", class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Messages", "#", class: "nav-link" %>
+          </li>
+          <li class="nav-item dropdown">
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-bordered", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "My flats", "#", class: "dropdown-item" %>
+              <%= link_to "My trips", "#", class: "dropdown-item" %>
+              <%= link_to "Log out", "#", class: "dropdown-item", data: {turbo_method: :delete} %>
+            </div>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<%# banner %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://www.frenchtouchproperties.com/wp-content/uploads/2018/11/Louer-a-Paris-2-1030x687.jpg;">
+  <div class="container">
+    <h1>Stay Relax,<strong> Stay </strong> <strong>Flex</strong>!</h1>
+    <p>L'appartement de vos rêves se trouve juste ici.</p>
+    <%= link_to "Nos logements", "#", class: "btn btn-flat" %>
+  </div>
+</div>
+
+<%# destinations phares %>
+<div class="container">
+  <div class="row">
+    <h2>Les destinations phares</h2>
+  </div>
+  <div class="row">
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.pariscityvision.com/library/image/5251.jpg)">
+      France
+    </div>
+  </div>
+  <div class="row">
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.wallpapersafari.com/2/96/Cx7BJP.jpg)">
+      Greece
+    </div>
+  </div>
+  <div class="row">
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://group.accor.com/-/media/Corporate/News-images/2017/09/25/Maldives/20170927-Maldives01.jpg?c=1&cw=1400&ch=700&version=1)">
+      Maldives
+    </div>
+  </div>
+</div>
+
+<%# les top appartements %>
+<div class="container">
+
+<h2>Les appartements les plus demandés</h2>
+
+  <div class="d-flex justify-content-around">
+
+      <div class="card-flat" class="pt-5" class="mw-100" class="mh-100">
+       <img src="https://q-xx.bstatic.com/xdata/images/hotel/max1024x768/296470766.jpg?k=ad01a76e86799cb27e099b8db5e4e5d1506a9184ebaa74c225a6b477fbad87e7&o=" />
+        <div class="card-flat-infos">
+          <div>
+            <h2>Lovely flat in Athens</h2>
+            <p>Flat with a view into the Acropole</p>
+          </div>
+        <h2 class="card-flat-pricing">199.99€</h2>
+        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-flat-user avatar-bordered" />
+
+      </div>
+    </div>
+
+      <div class="card-flat" class="mw-100" class="mh-100">
+       <img src="https://www.vacationkey.com/photos/4/9/49721-1.jpg" />
+        <div class="card-flat-infos">
+          <div>
+            <h2>Flat in the Champs Elysées</h2>
+            <p>Live into the heart of Paris</p>
+          </div>
+        <h2 class="card-flat-pricing">699.99€</h2>
+        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-flat-user avatar-bordered" />
+        </div>
+    </div>
+
+      <div class="card-flat" class="mw-100" class="mh-100">
+       <img src="https://www.kenwoodtravel.co.uk//uploads/2020/10/16/The%20Residence%20Falhumaafushi-Water%20Pool%20Villa%202_7618.jpg" />
+        <div class="card-flat-infos">
+          <div>
+            <h2>Bungalow cocoon</h2>
+            <p>Come discover a relaxing place</p>
+          </div>
+        <h2 class="card-flat-pricing">1300€</h2>
+        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-flat-user avatar-bordered" />
+        </div>
+    </div>
+
+    <div class="card-flat" class="mw-100" class="mh-100">
+          <img src="https://mpvstorage.blob.core.windows.net/villapics/166/cropped/be14d2b5-6388-48e2-80e8-caa5e5191a68.jpg?v=112303011610" />
+            <div class="card-flat-infos">
+              <div>
+                <h2>Villa in Bali</h2>
+                <p>A wonderful villa</p>
+              </div>
+            <h2 class="card-flat-pricing">700€</h2>
+            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-flat-user avatar-bordered" />
+            </div>
+        </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="d-flex justify-content-around">
+
+      <div class="card-flat" class="pt-5" class="mw-100" class="mh-100">
+       <img src="https://q-xx.bstatic.com/xdata/images/hotel/max1024x768/296470766.jpg?k=ad01a76e86799cb27e099b8db5e4e5d1506a9184ebaa74c225a6b477fbad87e7&o=" />
+        <div class="card-flat-infos">
+          <div>
+            <h2>Lovely flat in Athens</h2>
+            <p>Flat with a view into the Acropole</p>
+          </div>
+        <h2 class="card-flat-pricing">199.99€</h2>
+        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-flat-user avatar-bordered" />
+
+      </div>
+    </div>
+
+      <div class="card-flat" class="mw-100" class="mh-100">
+       <img src="https://www.vacationkey.com/photos/4/9/49721-1.jpg" />
+        <div class="card-flat-infos">
+          <div>
+            <h2>Flat in the Champs Elysées</h2>
+            <p>Live into the heart of Paris</p>
+          </div>
+        <h2 class="card-flat-pricing">699.99€</h2>
+        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-flat-user avatar-bordered" />
+        </div>
+    </div>
+
+      <div class="card-flat" class="mw-100" class="mh-100">
+       <img src="https://www.kenwoodtravel.co.uk//uploads/2020/10/16/The%20Residence%20Falhumaafushi-Water%20Pool%20Villa%202_7618.jpg" />
+        <div class="card-flat-infos">
+          <div>
+            <h2>Bungalow cocoon</h2>
+            <p>Come discover a relaxing place</p>
+          </div>
+        <h2 class="card-flat-pricing">1300€</h2>
+        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-flat-user avatar-bordered" />
+        </div>
+    </div>
+
+    <div class="card-flat" class="mw-100" class="mh-100">
+          <img src="https://mpvstorage.blob.core.windows.net/villapics/166/cropped/be14d2b5-6388-48e2-80e8-caa5e5191a68.jpg?v=112303011610" />
+            <div class="card-flat-infos">
+              <div>
+                <h2>Villa in Bali</h2>
+                <p>A wonderful villa</p>
+              </div>
+            <h2 class="card-flat-pricing">700€</h2>
+            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-flat-user avatar-bordered" />
+            </div>
+        </div>
+  </div>
+</div>
+
+
+
+
+
+<%# footer %>
+<div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright">
+    Stay Relax, Stay Flex
+  </div>
+</div>
