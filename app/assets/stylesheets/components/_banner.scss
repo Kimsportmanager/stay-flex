@@ -1,4 +1,5 @@
 .banner {
+  margin-top: 10px;
   background-size: cover;
   background-position: center;
   padding: 200px 0;
@@ -61,4 +62,9 @@
 .btn-gradient:hover {
   background: linear-gradient(#147EFF, #0F67DA);
   color: white;
+}
+
+
+.section {
+  margin-bottom: 10px;
 }
