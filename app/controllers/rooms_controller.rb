@@ -1,27 +1,14 @@
 class RoomsController < ApplicationController
 
   skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :set_boat, only: [:show, :edit, :update, :destroy]
+  before_action :set_room, only: [:show, :edit, :update, :destroy]
 
   def index
-
-    if params[:query].present?
-      @rooms = policy_scope(Room).search_by_title_and_address(params[:query])
-    else
-      @rooms = policy_scope(Room)
-      authorize @rooms
-    end
-    @markers = @rooms.where.not(latitude: nil, longitude: nil).map do |boat|
-      {
-        lat: boat.latitude,
-        lng: boat.longitude
-      }
-    end
+    @rooms = Room.all
   end
 
   def show
-    @review = Review.new
-    @booking = Reservation.new
+    @rooms = Room.all
   end
 
   def new
@@ -46,7 +33,7 @@ class RoomsController < ApplicationController
 
   def update
     if @room.update(room_params)
-      redirect_to boat_path(@room)
+      redirect_to room_path(@room)
     else
       render :edit
     end
@@ -62,13 +49,12 @@ class RoomsController < ApplicationController
 
   private
 
-  def set_room
-    @room = Room.find(params[:id])
-    authorize @room
+ def set_room
+  @room = Room.all
   end
 
   def room_params
-    params[:room].permit(:users_id, :city, :neighborhood, :room_number, :bathroom_number, :bed_number, :max_ccupants, :price, :room_pictures, :available_start_date, :available_end_date, :title, :description)
+    params[:room].permit(:user, :users_id, :city, :neighborhood, :room_number, :bathroom_number, :bed_number, :max_ccupants, :price, :room_pictures, :available_start_date, :available_end_date, :title, :description)
   end
 end
 
