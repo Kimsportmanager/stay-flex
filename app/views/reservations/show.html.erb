@@ -1,0 +1,33 @@
+<div class="container-listing">
+  <div class="row listing-content">
+    <!-- Details box -->
+    <div class="listing col-md-8">
+      <div class="listing-title">
+        <h3><strong><%= @room.title %></strong></h3>
+        <p><%= @room.address %></p>
+      </div><br>
+
+      <div class="listing-details">
+        <div class="row-content">
+          <div class="col-xs-3">
+            <p><strong>Highlights</strong></p>
+          </div>
+
+          <div class="col-xs-9">
+              <%= @room.description %>
+          </div>
+        </div>
+        <br><br>
+      </div>
+
+      <div class="listing-reviews">
+        <%= render 'reviews' %>
+      </div>
+    </div>
+
+    <%= render 'reservations/form', room: @room, reservation: @reservation %>
+
+    <br><br><br>
+  </div>
+
+</div>

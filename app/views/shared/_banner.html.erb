@@ -5,10 +5,11 @@
         <p class="Banner__leading">Alone, with friends or love, it's up to you...</p>
         <%= form_tag('/rooms', method: "get", class: "Banner__form") do %>
           <div class="input-group input-group-lg">
-            <%= text_field_tag(:query, nil, placeholder: "Where do you want to go?", class: "Input Banner__input form-control") %>
+            <%= text_field_tag(:query, nil, placeholder: "Type the city you want to go in...", class: "Input Banner__input form-control") %>
             <div class="input-group-btn">
               <%= button_tag :submit, class: "btn btn-primary btn-lg" do %>
                 <i class="fa fa-search" aria-hidden="true"></i>
+                <% link_to rooms_path %>
               <% end %>
             </div>
           </div>
