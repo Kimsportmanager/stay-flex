@@ -23,9 +23,9 @@
           <li class="nav-item dropdown">
             <%= image_tag "https://www.pngmart.com/files/21/Account-User-PNG-Clipart.png", class: "avatar-bordered", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "My flats", "#", class: "dropdown-item" %>
-              <%= link_to "My trips", "#", class: "dropdown-item" %>
-              <%= link_to "Log out",  destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
+              <%= link_to "My rooms", "#", class: "dropdown-item" %>
+              <%= link_to "My reservations", "#", class: "dropdown-item" %>
+              <%= link_to "Log out",  destroy_user_session_path, class: "dropdown-item", method: :delete %>
             </div>
           </li>
         <% else %>
