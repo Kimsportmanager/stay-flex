@@ -7,7 +7,7 @@ Rails.application.routes.draw do
    get 'dashboard', to: 'dashboard#index'
    resources :rooms, only: :update
 
-   resources :rooms do
+   resources :rooms, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
      resources :reservation, only: [ :new, :create, :show ]
      resources :reviews, only: [ :new, :create, :show ]
    end

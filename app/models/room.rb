@@ -16,5 +16,9 @@ class Room < ApplicationRecord
 
   after_validation :geocode, if: :will_save_change_to_address?
 
-  validates :city, :neighborhood, :room_number, :bathroom_number, :bed_number, :max_ccupants, :price, :available_start_date, :available_end_date, :room_pictures, presence: true
+
+
+  def to_param
+    id.to_s
+  end
 end

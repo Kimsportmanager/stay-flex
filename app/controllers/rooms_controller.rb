@@ -19,11 +19,10 @@ class RoomsController < ApplicationController
     @room = Room.new(room_params)
     @room.user = current_user
     if @room.save
-      redirect_to room_path(@room)
+      redirect_to rooms_path(@room)
     else
       render :new
     end
-
   end
 
   def edit
