@@ -49,7 +49,7 @@ class RoomsController < ApplicationController
 
   private
 
- def set_room
+  def set_room
   @room = Room.all
   end
 

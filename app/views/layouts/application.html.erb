@@ -8,6 +8,7 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <%= stylesheet_link_tag 'application', 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css' %>
   </head>
 
   <body>
@@ -16,5 +17,6 @@
     <p class="alert"><%= alert %></p>
     <%= render "shared/flashes" %>
     <%= yield %>
+    <%= javascript_include_tag 'application', 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js' %>
   </body>
 </html>
