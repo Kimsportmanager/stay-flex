@@ -1,5 +1,5 @@
 class RoomsController < ApplicationController
-
+  include Pundit
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_room, only: [:show, :edit, :update, :destroy]
 
@@ -13,13 +13,11 @@ class RoomsController < ApplicationController
 
   def new
     @room = Room.new
-    authorize @room
   end
 
   def create
     @room = Room.new(room_params)
     @room.user = current_user
-    authorize @room
     if @room.save
       redirect_to room_path(@room)
     else
@@ -54,7 +52,7 @@ class RoomsController < ApplicationController
   end
 
   def room_params
-    params[:room].permit(:user, :users_id, :city, :neighborhood, :room_number, :bathroom_number, :bed_number, :max_ccupants, :price, :room_pictures, :available_start_date, :available_end_date, :title, :description)
+    params[:room].permit(:user, :user_id, :city, :neighborhood, :room_number, :bathroom_number, :bed_number, :max_ccupants, :price, :room_pictures, :available_start_date, :available_end_date, :title, :description)
   end
 end
 
